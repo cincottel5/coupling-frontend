@@ -28,6 +28,7 @@ export class Node implements d3.SimulationNodeDatum {
 
   filter;
 
+  inCoEvolution = false;
 
   constructor(method) {
     this.coEvolutionInGraph = [];

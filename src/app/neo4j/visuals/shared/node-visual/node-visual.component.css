@@ -24,3 +24,47 @@
 .no-selected-node {
   opacity: 0.2;
 }
+
+.selected-node{
+  fill: #fd5d93;
+}
+
+.in-coevolution{
+  -webkit-animation: flash linear 1s 4;
+  animation: flash linear 1s 4;
+  fill: #fff;
+}
+
+.in-coevolution-text {
+  -webkit-animation: flashText linear 1s 4;
+  animation: flashText linear 1s 4;
+  fill: rgb(44, 62, 80);
+}
+
+.node-name{
+  cursor: pointer;
+}
+
+@-webkit-keyframes flash {
+	0% { fill:  #fff;} 
+	50% { fill: rgb(44, 62, 80);} 
+	100% { fill: #fff; }
+}
+@keyframes flash {
+	0% { fill:  #fff;} 
+	50% { fill: rgb(44, 62, 80);} 
+	100% { fill: #fff; }
+}
+
+@-webkit-keyframes flashText {
+	0% { fill:  rgb(44, 62, 80);} 
+	50% { fill: #fff} 
+	100% { fill: rgb(44, 62, 80); }
+}
+@keyframes flashText{
+	0% { fill:  rgb(44, 62, 80);} 
+	50% { fill: #fff} 
+	100% { fill: rgb(44, 62, 80); }
+}
+
+/* rgb(44, 62, 80) */

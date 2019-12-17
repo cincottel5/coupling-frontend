@@ -24,7 +24,7 @@ import { GraphNodeService } from '../../../../services/graph-node.service';
       </svg:circle>
       <svg:circle
           class="node"
-          [ngClass]="{'no-selected-node': !node.filter}"
+          [ngClass]="{'no-selected-node': !node.filter, 'in-coevolution': node.inCoEvolution, 'selected-node': this.graphNodeService.node?.id == node.id }"
           [attr.fill]="node.color"
           cx="0"
           cy="0"
@@ -36,6 +36,7 @@ import { GraphNodeService } from '../../../../services/graph-node.service';
       
       <svg:text
           class="node-name"
+          [ngClass]="{'in-coevolution-text': node.inCoEvolution}"
           [attr.font-size]="node.fontSize">
         {{node.graphLabel}}
       </svg:text>
@@ -46,9 +47,11 @@ import { GraphNodeService } from '../../../../services/graph-node.service';
 export class NodeVisualComponent {
   @Input('nodeVisual') node: Node;
 
+
   constructor(private graphNodeService: GraphNodeService) {}
 
   clickNode() {
+    
     this.graphNodeService.setNode(this.node);
   }
 }

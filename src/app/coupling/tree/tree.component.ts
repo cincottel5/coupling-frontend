@@ -77,6 +77,20 @@ export class TreeComponent implements OnInit {
   
       this.graphNodeService.emitter.subscribe( node=> {
         this.selectedNode = node;
+
+        // this.nodes.forEach(function(n){
+        //   n.inCoEvolution = false;
+        // });
+
+        this.nodes.forEach(function(n) {
+          let coEvolve = _.findIndex(n.coEvolutions, function(c) {
+            return c.id.low == node.classId
+          });
+
+          n.inCoEvolution = (coEvolve != -1);
+        });
+
+        //console.log(this.nodes);
       })
     }
   
@@ -172,7 +186,7 @@ export class TreeComponent implements OnInit {
   
       let listNodes = this.nodes.map(x => x.id).join(',');
       let query = queries.co_evolution.replace('$(LIST)', listNodes);
-  
+
       this.neo4jService.run(query).then(result => {
         result.records.forEach(r => {
           let index = _.findIndex(this.nodes, ['id', r.get('method_id')]);
@@ -201,9 +215,10 @@ export class TreeComponent implements OnInit {
       .filter(x=> x.method == 'no-name')
       .map(function(x: any){ return x.id.low});
 
+      if (noNameNodes.length < 1) return;
+
       let query = queries.get_no_name_info.replace('$(LIST)', noNameNodes.join(','));
       
-      console.log(query);
 
       this.neo4jService.run(query).then(result => {
         
