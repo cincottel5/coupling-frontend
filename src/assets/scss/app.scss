@@ -1,0 +1,94 @@
+.icon-nav-neo4j{ 
+    width: 96px;
+    height: 96px;
+}
+
+.card-nav-neo4j{
+    text-align: center;
+    cursor: pointer;
+}
+
+.card-nav-neo4j:hover {
+    /*background: rgb(6, 215, 156);*/
+    background: rgb(255, 178, 43);
+}
+
+.card-nav-neo4j:hover .text-muted {
+    color: #fff!important;
+}
+
+.card-nav-neo4j:hover img{
+    // filter: invert(0%);
+}
+
+.p-ns-qualifiedname {
+    height: 60px;
+}
+
+.p-c-qualifiedname {
+    height: 100px;
+}
+
+.p-c-title {
+    height: 42px;
+}
+
+.p-c-name {
+    height: 40px;
+}
+
+.graph-container {
+    // border: 1px solid #ced4da;
+    // border-radius: 3px;
+}
+
+.breadcrumb {
+    background: #2962FF!important;
+    color: #fff;
+}
+
+.graph-node-info {
+    margin-bottom: 25px;
+}
+
+.graph-node-info .row{ 
+    padding-top: 10px;
+
+}
+
+.graph-node-info .row:first-child {
+    margin-bottom: 10px;
+}
+
+.graph-node-info .row + .row {
+    border-top: 1px solid #000;
+}
+
+.img-invert{
+    filter: invert(100%);
+}
+
+.title-tree {
+    font-size: 20px;
+    text-align: right;
+    margin-right: 0px;
+    padding-right: 0px!important;
+}
+
+.footer{
+    padding-left: 0px!important;
+}
+
+.input-tree {
+    margin-top: 16px;
+    border-color: #9A9A9A;
+}
+
+.slider-tree{
+    padding-left: 20px!important;
+    padding-right: 20px!important;
+}
+
+.graph-node-info{
+    color: #fff;
+}

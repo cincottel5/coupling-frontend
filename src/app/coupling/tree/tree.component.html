@@ -1,0 +1,96 @@
+<div class=" content">
+  <div class=" row">
+    <div class=" col-12">
+      <div class=" card card-chart">
+        <div class=" card-header">
+          <div class=" row">
+            <div class=" col-sm-6 text-left">
+              <h5 class=" card-category">Grafo de acoplamiento indirecto y lógico</h5>
+              <h2 class=" card-title">Acoplamiento</h2>
+            </div>
+          </div>
+        </div>
+        <!-- <div class=" card-body">
+          
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Cadena de acoplamiento</h4>
+          <h6 class="card-subtitle">Clase abcd</h6>
+
+          <br>
+
+          <div class="filters">
+            <div class="form-row">
+              <div class="col-md-4 mb-3 ">
+                <label for="validationServer02">Nombre del método</label>
+                <input type="text" placeholder="Buscar..." class="form-control input-tree" id="validationServer02"
+                  [formControl]="searchControl">
+                <div class="valid-feedback">
+
+                </div>
+              </div>
+              <div class="col-md-4 mb-3 slider-tree">
+                <label for="validationServer01">Profundidad del grafo</label>
+                <ng5-slider (userChangeEnd)="sliderChange($event)" [(value)]="deepNumber" [options]="options">
+                </ng5-slider>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="validationServerUsername">Tipo de relacion</label>
+                <ng-select (change)="directionChange($event)" [items]="relationshipTypes" bindValue="value"
+                  bindLabel="label" [(ngModel)]="relationshipType" class="input-tree"></ng-select>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div *ngIf="loaded" class="graph-container">
+            <div class="container graph-node-info">
+              <div class="row">
+                <div class="col-4">Método</div>
+                <div class="col-2">Id Neo4j</div>
+                <div class="col-4">Clase</div>
+                <div class="col-2"># Cambios</div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  {{selectedNode?.method}}
+                </div>
+                <div class="col-2">
+                  {{selectedNode?.id}}
+                </div>
+
+                <div class="col-4">
+                  {{selectedNode?.className}}
+                </div>
+                <div class="col-2">
+                  {{selectedNode?.classChangesCount||0}} veces
+                </div>
+              </div>
+            </div>
+
+            <graph [nodes]="nodes" [links]="links" #graph></graph>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

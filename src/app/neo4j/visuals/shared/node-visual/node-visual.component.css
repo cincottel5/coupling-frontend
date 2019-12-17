@@ -1,0 +1,26 @@
+.node {
+    cursor: pointer;
+    transition: stroke-width 0.1s ease-out,
+        fill 0.1s ease-out,
+        stroke 0.1s ease-out;
+
+      stroke:"rgba(22, 160, 133,1.0)";
+      stroke-width:"2";
+}
+
+.node-name {
+  font-family: "Nunito Sans", sans-serif;
+  text-anchor: middle;
+  alignment-baseline: central;
+  font-weight: 300;
+  fill: white;
+}
+
+.node-back {
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 12%, rgba(0,212,255,1) 22%, rgba(255,0,37,1) 31%, rgba(0,255,27,1) 42%, rgba(229,0,255,1) 53%);
+}
+
+.no-selected-node {
+  opacity: 0.2;
+}

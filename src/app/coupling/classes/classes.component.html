@@ -1,0 +1,57 @@
+<div class=" content">
+  <div class=" row">
+    <div class=" col-12">
+      <div class=" card card-chart">
+        <div class=" card-header">
+          <div class=" row">
+            <div class=" col-sm-6 text-left">
+              <h5 class=" card-category">Clases del proyecto</h5>
+              <h2 class=" card-title">Clases</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <ng-container *ngIf="!loading; else loadingTemplate">
+      <div class="col-3"
+        *ngFor="let p of classes | paginate: { itemsPerPage: 8, currentPage: page, totalItems: total }">
+        <div class="card card-nav-neo4j" (click)="goToMethods(p.id, p.name)" id="{{p.id}}">
+          <div class="card-body">
+            <img src="../../../assets/img/namespace_icon.png" alt="" class="card-img-top icon-nav-neo4j img-invert">
+            <div class="card-body">
+              <h4 class="card-title">{{p.name}}</h4>
+              <br>
+              <p class="m-b-0"><span class="text-muted">{{p.name}}</span></p>
+              <p class="p-ns-qualifiedname"><span class="text-muted">{{p.qualifiedname}}</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12" *ngIf="classes.length < 1">
+        <p class="text-center">
+          No se encontraron registros
+        </p>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="row" *ngIf="classes.length > 0">
+    <pagination-controls (pageChange)="loadClasses($event)" ></pagination-controls>
+  </div>
+</div>
+
+<!-- Templates -->
+<ng-template #loadingTemplate>
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <div class="btn btn-block btn-info">
+        <span class="spinner-border spinner-border-sm m-r-3"></span>
+        Cargando ...
+      </div>
+    </div>
+  </div>
+</ng-template>
