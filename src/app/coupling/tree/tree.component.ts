@@ -65,6 +65,7 @@ export class TreeComponent implements OnInit {
     private modalService: NgbModal ) { }
 
     ngOnInit() {
+      this.graphNodeService.node = null;
       this.routesService.cleanFromTree();
       this.methodId = this.activatedRoute.snapshot.paramMap.get('methodId');
   

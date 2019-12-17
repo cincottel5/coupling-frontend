@@ -24,7 +24,7 @@ import { GraphNodeService } from '../../../../services/graph-node.service';
       </svg:circle>
       <svg:circle
           class="node"
-          [ngClass]="{'no-selected-node': !node.filter, 'in-coevolution': node.inCoEvolution, 'selected-node': this.graphNodeService.node?.id == node.id }"
+          [ngClass]="{'no-selected-node': !node.filter, 'in-coevolution': node.inCoEvolution, 'selected-node': (this.graphNodeService.node != null && this.graphNodeService.node.classId == node.classId) }"
           [attr.fill]="node.color"
           cx="0"
           cy="0"
