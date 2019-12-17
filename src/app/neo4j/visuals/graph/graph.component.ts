@@ -55,7 +55,7 @@ export class GraphComponent implements OnInit, AfterViewInit {
   get options() {
     return this._options
      = {
-      width: window.innerWidth-350,
+      width: window.innerWidth-85,
       height: window.innerHeight-200
     };
   }
