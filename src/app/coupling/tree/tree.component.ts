@@ -24,6 +24,7 @@ export class TreeComponent implements OnInit {
   links: Link[];
 
   classes = new Set();
+  classNames = new Set();
 
   loaded = false;
   loading = false;
@@ -56,6 +57,8 @@ export class TreeComponent implements OnInit {
   };
 
   closeResult: string;
+
+  showTable = false;
 
   constructor(
     private neo4jService: Neo4jService,
@@ -201,6 +204,7 @@ export class TreeComponent implements OnInit {
           this.nodes[index].coEvolutions = r.get('co_evolutions');
   
           this.classes.add(classId);
+          this.classNames.add(r.get('class_name'));
         });
   
         this.setCoevolutionInGraph();
@@ -301,6 +305,7 @@ export class TreeComponent implements OnInit {
   
     sliderChange(value) {
       this.loaded = false;
+      this.showTable = false;
       this.getStructuralCoupling();
       this.graph.refresh();
     }
@@ -311,5 +316,9 @@ export class TreeComponent implements OnInit {
       this.loaded = false;
       this.getStructuralCoupling();
       this.graph.refresh()
+    }
+
+    open() {
+      this.showTable = !this.showTable;
     }
 }

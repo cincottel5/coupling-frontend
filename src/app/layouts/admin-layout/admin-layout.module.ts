@@ -19,6 +19,7 @@ import { NamespacesComponent } from '../../coupling/namespaces/namespaces.compon
 import { ClassesComponent } from '../../coupling/classes/classes.component';
 import { MethodsComponent } from '../../coupling/methods/methods.component';
 import { TreeComponent } from '../../coupling/tree/tree.component';
+import { CoevolutionTableComponent } from '../../coupling/tree/coevolution-table/coevolution-table.component';
 
 import { D3Service, D3_DIRECTIVES } from '../../neo4j/d3';
 import { GraphComponent } from '../../neo4j/visuals/graph/graph.component';
@@ -57,6 +58,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     ClassesComponent, 
     MethodsComponent, 
     TreeComponent,
+    CoevolutionTableComponent,
     GraphComponent,
     ...SHARED_VISUALS,
     ...D3_DIRECTIVES,

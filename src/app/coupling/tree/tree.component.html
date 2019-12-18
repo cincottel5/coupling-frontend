@@ -55,6 +55,16 @@
     </div>
   </div>
 
+  <div class="row animated fadeInDown" *ngIf="showTable">
+    <div class="col-12">
+      <app-coevolution-table 
+        [node]="selectedNode"
+        [classIds]="classes"
+        [classNames]="classNames">
+      </app-coevolution-table>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-12">
       <div class="card">
@@ -63,15 +73,16 @@
             <div class="container graph-node-info">
               <div class="row">
                 <div class="col-4">Método</div>
-                <div class="col-2">Id Neo4j</div>
+                <div class="col-1">Id Neo4j</div>
                 <div class="col-4">Clase</div>
                 <div class="col-2"># Cambios</div>
+                <div class="col-1"></div>
               </div>
               <div class="row">
                 <div class="col-4">
                   {{selectedNode?.method}}
                 </div>
-                <div class="col-2">
+                <div class="col-1">
                   {{selectedNode?.id}}
                 </div>
 
@@ -80,7 +91,14 @@
                 </div>
                 <div class="col-2">
                   {{selectedNode?.classChangesCount||0}} veces
+                  
                 </div>
+                <div class="col-1">
+                  <button class="btn btn-sm btn-outline-primary" (click)="open()">
+                    <i class="tim-icons icon-single-copy-04"></i>
+                  </button>
+                </div>
+
               </div>
             </div>
 
@@ -93,4 +111,6 @@
     </div>
   </div>
 </div>
+
+
 

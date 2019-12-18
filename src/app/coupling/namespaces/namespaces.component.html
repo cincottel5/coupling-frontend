@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row justify-content-center">
     <ng-container *ngIf="!loading; else loadingTemplate">
       <div class="col-3"
         *ngFor="let p of namespaces | paginate: { itemsPerPage: 8, currentPage: page, totalItems: total }">
@@ -42,18 +42,22 @@
     </ng-container>
   </div>
   <div class="row" *ngIf="namespaces.length > 0">
-    <pagination-controls (pageChange)="loadNamespaces($event)" ></pagination-controls>
+    <pagination-controls class="pagination" (pageChange)="loadNamespaces($event)" ></pagination-controls>
   </div>
 </div>
 
 <!-- Templates -->
 <ng-template #loadingTemplate>
-  <div class="row justify-content-center">
-    <div class="col-3">
-      <div class="btn btn-block btn-info">
-        <span class="spinner-border spinner-border-sm m-r-3"></span>
-        Cargando ...
+  <div class="col-3">
+    <div class="btn btn-block btn-info">
+      <div class="spinner-n4j" >
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
       </div>
+      <div class="spinner-text">
+        Cargando
+      </div>  
     </div>
   </div>
 </ng-template>

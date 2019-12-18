@@ -1,0 +1,22 @@
+
+<div class="card" *ngIf="node && list.length > 0">
+  <div class="card-body">
+    <div class="places-buttons">
+      <div class="row">
+        <div class=" col-md-6 ml-auto mr-auto text-center">
+          <h4 class=" card-title">Co evolución</h4>
+          <p class=" category">Clases con las que ha evolucionado en el grafo</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class=" col-lg-8 ml-auto mr-auto">
+          <div class=" row">
+            <div class=" col-md-4" *ngFor="let item of list">
+              <button class=" btn btn-danger btn-block"> {{item.name}}: <small>{{item.count}} veces</small> </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
